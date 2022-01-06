@@ -7,7 +7,7 @@ resultado = 0
 operacao = ''
 
 sg.theme('DarkBlue16')   # Adicionando a cor/tema
-# All the stuff inside your window.
+# Layout da janela com todas as coisas que vão compor ele.
 layout = [  
             [sg.Button('       1       '), sg.Button('       2       '), sg.Button('       3       '), sg.Button('       /       ')],
             [sg.Button('       4       '), sg.Button('       5       '), sg.Button('       6       '), sg.Button('       x      ')],
@@ -22,7 +22,7 @@ window = sg.Window('Calculadora', layout)
 while True:
 
     event, values = window.read()
-    if (event == sg.WIN_CLOSED or event == 'Close')  and sg.popup_yes_no('Do you really want to exit?') == 'Yes': # if user closes window or clicks cancel
+    if event == sg.WIN_CLOSED or event == 'Close': # Se o usuario fechar a janela ou clicar em close
         break
 
     if event == '       1       ':
@@ -77,7 +77,6 @@ while True:
         if operacao == '/':
             resultado = aux1 / aux2
         sg.popup_no_border(resultado)
-        print(resultado)
         aux1 = 0
         aux2 = 0
         resultado = 0
